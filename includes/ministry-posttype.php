@@ -133,16 +133,15 @@ if ( ! class_exists( 'JMB_Ministry_PostType' ) ) {
                     'title'  => 'Ministry Fields',
                     'fields' => array(
                         array(
-                            'key'           => 'field_jmb_ministry_thumbnail',
-                            'label'         => 'Thumbnail',
-                            'name'          => 'ministry_thumbnail',
-                            'type'          => 'image',
-                            'instructions'  => 'The image used when listing ministries.',
-                            'return_format' => 'id',
-                            'preview_size'  => 'medium',
-                            'library'       => 'all',
-                            'min_width'     => '450px',
-                            'min_height'    => '450px'
+                            'key'           => 'field_jmb_ministry_icon',
+                            'label'         => 'Icon',
+                            'name'          => 'ministry_icon',
+                            'type'          => 'font-awesome',
+                            'instructions'  => 'The icon that will be displayed when listing ministries.',
+                            'required'      => 0,
+                            'save_format'   => 'class',
+                            'show_preview'  => 1,
+			                'enqueue_fa'    => 0,
                         ),
                         array(
                             'key'           => 'field_jmb_ministry_short_desc',
@@ -151,6 +150,47 @@ if ( ! class_exists( 'JMB_Ministry_PostType' ) ) {
                             'type'          => 'textarea',
                             'instructions'  => 'The short description that is displayed when listing ministries.',
                             'required'      => 0
+                        ),
+                        array(
+                            'key'           => 'field_jmb_ministry_meeting_times',
+                            'label'         => 'Meeting Times',
+                            'name'          => 'jmb_ministry_meeting_times',
+                            'type'          => 'wysiwyg',
+                            'instructions'  => 'A description of regular meeting times can be placed here.',
+                            'required'      => 0,
+                            'tabs'          => 'all',
+                            'toolbar'       => 'full',
+                            'media_upload'  => 0,
+                            'delay'         => 0,
+                        ),
+                        array(
+                            'key'           => 'field_jmb_ministry_special_event_category',
+                            'label'         => 'Special Event Category',
+                            'name'          => 'ministry_special_event_category',
+                            'type'          => 'taxonomy',
+                            'instructions'  => 'Choose the special event category for this ministry.',
+                            'required'      => 0,
+                            'taxonomy'      => 'event-categories',
+                            'field_type'    => 'select',
+                            'allow_null'    => 0,
+                            'add_term'      => 1,
+                            'return_format' => 'id',
+                            'multiple'      => 0,
+                        ),
+                        array(
+                            'key'           => 'field_jmb_ministry_leader',
+                            'label'         => 'Leader',
+                            'name'          => 'ministry_leader',
+                            'type'          => 'post_object',
+                            'instructions'  => 'Choose the leader of this ministry.',
+                            'required'      => 0,
+                            'post_type'     => array(
+                                0 => 'person',
+                            ),
+                            'allow_null'    => 1,
+                            'multiple'      => 0,
+                            'return_format' => 'id',
+                            'ui'            => 1,
                         ),
                     ),
                     'location' => array(
@@ -174,6 +214,14 @@ if ( ! class_exists( 'JMB_Ministry_PostType' ) ) {
          * @return array
          */
         public static function add_meta_data( $posts ) {
+            foreach( $posts as $post ) {
+                $post->ministry_icon          = get_post_meta( $post->ID, 'ministry_icon', true );
+                $post->ministry_short_desc    = get_post_meta( $post->ID, 'ministry_short_desc', true );
+                $post->ministry_meeting_times = get_post_meta( $post->ID, 'ministry_meeting_times', true );
+                $post->ministry_special_event = get_post_meta( $post->ID, 'ministry_special_event_category', true );
+                $post->ministry_leader        = get_post_meta( $post->ID, 'ministry_leader', true );
+            }
+
             return $posts;
         }
     }

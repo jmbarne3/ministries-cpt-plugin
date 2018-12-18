@@ -19,6 +19,8 @@ define( 'JMB_MINISTRY__PLUGIN_FILE', __FILE__ );
 
 
 include_once 'includes/ministry-posttype.php';
+include_once 'common/ministry-common.php';
+include_once 'shortcodes/ministry-list-shortcode.php';
 
 if ( ! function_exists( 'jmb_ministry_plugin_activation' ) ) {
     function jmb_ministry_plugin_activation() {
@@ -42,6 +44,8 @@ if ( ! function_exists( 'jmb_ministry_init' ) ) {
         add_action( 'init', array( 'JMB_Ministry_PostType', 'register_posttype' ), 10, 0 );
         add_action( 'acf/init', array( 'JMB_Ministry_PostType', 'add_fields' ), 10, 0 );
         add_action( 'posts_results', array( 'JMB_Ministry_PostType', 'add_meta_data' ), 10, 1 );
+
+        add_action( 'init', array( 'JMB_Ministry_List_Shortcode', 'register_shortcode' ), 10, 0 );
     }
 
     add_action( 'plugins_loaded', 'jmb_ministry_init' );
