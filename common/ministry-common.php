@@ -67,7 +67,7 @@ if ( ! class_exists( 'JMB_Ministry_Common' ) ) {
                 <div class="ministry-list-item">
                     <a class="block-link" href="<?php echo get_permalink( $post->ID ); ?>">
                         <div class="ministry-icon-wrapper">
-                            <span class="ministry-icon fa <?php echo $post->ministry_icon; ?>"></span>
+                            <span class="ministry-icon rounded-circle fa <?php echo $post->ministry_icon; ?>"></span>
                         </div>
                         <h2 class="ministry-title"><?php echo $post->post_title; ?></h2>
                         <p class="ministry-short-desc"><?php echo $post->ministry_short_desc; ?></p>
