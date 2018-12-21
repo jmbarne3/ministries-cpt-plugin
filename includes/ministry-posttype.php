@@ -154,7 +154,7 @@ if ( ! class_exists( 'JMB_Ministry_PostType' ) ) {
                         array(
                             'key'           => 'field_jmb_ministry_meeting_times',
                             'label'         => 'Meeting Times',
-                            'name'          => 'jmb_ministry_meeting_times',
+                            'name'          => 'ministry_meeting_times',
                             'type'          => 'wysiwyg',
                             'instructions'  => 'A description of regular meeting times can be placed here.',
                             'required'      => 0,
