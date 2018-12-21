@@ -6,7 +6,7 @@
  * Author: Jim Barnes
  * Author URI: https://github.com/jmbarne3/
  * Description: Provides a custom post type and shortcodes for ministries.
- * Github Plugin URI: jmbarne3/ministry-cpt-plugin
+ * Github Plugin URI: jmbarne3/ministries-cpt-plugin
  */
 if ( ! defined( 'WPINC' ) ) {
     die;
