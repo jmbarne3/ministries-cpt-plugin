@@ -14,7 +14,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 define( 'JMB_MINISTRY__PLUGIN_URL', plugins_url( basename( dirname( __FILE__ ) ) ) );
 define( 'JMB_MINISTRY__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-define( 'JMB_MINISTRY__STATIC_URL', JMB_PEOPLE__PLUGIN_URL . '/static' );
+define( 'JMB_MINISTRY__STATIC_URL', JMB_MINISTRY__PLUGIN_URL . '/static' );
 define( 'JMB_MINISTRY__PLUGIN_FILE', __FILE__ );
 
 
