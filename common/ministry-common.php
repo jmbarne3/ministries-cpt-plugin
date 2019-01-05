@@ -63,8 +63,8 @@ if ( ! class_exists( 'JMB_Ministry_Common' ) ) {
             ob_start();
             foreach( $posts as $post ) :
         ?>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card mb-4 h-100">
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div class="card h-100">
                     <div class="card-body">
                         <?php if ( $post->ministry_thumbnail ) : ?>
                         <img class="card-img-top mb-2" src="<?php echo $post->ministry_thumbnail; ?>">
