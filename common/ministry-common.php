@@ -64,14 +64,17 @@ if ( ! class_exists( 'JMB_Ministry_Common' ) ) {
             foreach( $posts as $post ) :
         ?>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="ministry-list-item">
-                    <a class="block-link" href="<?php echo get_permalink( $post->ID ); ?>">
-                        <div class="ministry-icon-wrapper">
-                            <span class="ministry-icon rounded-circle fa <?php echo $post->ministry_icon; ?>"></span>
-                        </div>
-                        <h2 class="ministry-title"><?php echo $post->post_title; ?></h2>
-                        <p class="ministry-short-desc"><?php echo $post->ministry_short_desc; ?></p>
-                    </a>
+                <div class="card mb-4 h-100">
+                    <div class="card-body">
+                        <?php if ( $post->ministry_thumbnail ) : ?>
+                        <img class="card-img-top mb-2" src="<?php echo $post->ministry_thumbnail; ?>">
+                        <?php endif; ?>
+                        <h2 class="card-title"><?php echo $post->post_title; ?></h2>
+                        <p class="card-text"><?php echo $post->ministry_short_desc; ?></p>
+                    </div>
+                    <div class="card-footer p-2">
+                        <a class="btn btn-complimentary btn-block" href="<?php echo get_permalink( $post->ID ); ?>">Learn More</a>
+                    </div>
                 </div>
             </div>
         <?php

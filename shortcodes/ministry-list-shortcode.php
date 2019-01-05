@@ -40,7 +40,9 @@ if ( ! class_exists( 'JMB_Ministry_List_Shortcode' ) ) {
                 $args['category_name'] = $atts['categories'];
             }
 
-            $posts = get_posts( $args );
+            $query = new WP_Query( $args );
+
+            $posts = $query->posts;
 
             return JMB_Ministry_Common::display_ministries( $posts, $layout, $atts );
         }

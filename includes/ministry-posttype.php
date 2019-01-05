@@ -133,15 +133,15 @@ if ( ! class_exists( 'JMB_Ministry_PostType' ) ) {
                     'title'  => 'Ministry Fields',
                     'fields' => array(
                         array(
-                            'key'           => 'field_jmb_ministry_icon',
-                            'label'         => 'Icon',
-                            'name'          => 'ministry_icon',
-                            'type'          => 'font-awesome',
-                            'instructions'  => 'The icon that will be displayed when listing ministries.',
+                            'key'           => 'field_jmb_ministry_thumbnail',
+                            'label'         => 'Ministry Thumbnail',
+                            'name'          => 'ministry_thumbnail',
+                            'type'          => 'image',
+                            'instructions'  => 'The image that appears when ministries are listed in a grid.',
                             'required'      => 0,
-                            'save_format'   => 'class',
-                            'show_preview'  => 1,
-			                'enqueue_fa'    => 0,
+                            'return_format' => 'id',
+                            'preview_size'  => 'medium',
+                            'library'       => 'all',
                         ),
                         array(
                             'key'           => 'field_jmb_ministry_short_desc',
@@ -215,11 +215,18 @@ if ( ! class_exists( 'JMB_Ministry_PostType' ) ) {
          */
         public static function add_meta_data( $posts ) {
             foreach( $posts as $post ) {
-                $post->ministry_icon          = get_post_meta( $post->ID, 'ministry_icon', true );
+                $ministry_thumbnail_id  = get_post_meta( $post->ID, 'ministry_thumbnail', true );
                 $post->ministry_short_desc    = get_post_meta( $post->ID, 'ministry_short_desc', true );
                 $post->ministry_meeting_times = get_post_meta( $post->ID, 'ministry_meeting_times', true );
                 $post->ministry_special_event = get_post_meta( $post->ID, 'ministry_special_event_category', true );
                 $post->ministry_leader        = get_post_meta( $post->ID, 'ministry_leader', true );
+
+                if ( $ministry_thumbnail_id ) {
+                    $image_array = wp_get_attachment_image_src( $ministry_thumbnail_id, 'medium' );
+                    $post->ministry_thumbnail = isset( $image_array[0] ) ? $image_array[0] : null;
+                } else {
+                    $post->ministry_thumbnail = null;
+                }
             }
 
             return $posts;
