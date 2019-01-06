@@ -33,6 +33,8 @@ if ( ! class_exists( 'JMB_Ministry_List_Shortcode' ) ) {
 
             $args = array(
                 'post_type'      => 'ministry',
+                'orderby'        => 'menu_order',
+                'order'          => 'ASC',
                 'posts_per_page' => -1,
             );
 

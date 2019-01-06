@@ -78,7 +78,7 @@ if ( ! class_exists( 'JMB_Ministry_PostType' ) ) {
 				'label'                 => __( $singular, self::$text_domain ),
 				'description'           => __( 'Used for defining sministries.', self::$text_domain ),
 				'labels'                => self::labels( $labels ),
-				'supports'              => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields' ),
+				'supports'              => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes' ),
 				'taxonomies'            => self::taxonomies(),
 				'hierarchical'          => false,
 				'public'                => true,
