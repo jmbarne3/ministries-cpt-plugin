@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Ministry Custom Post Type
- * Version: 1.0.0
+ * Version: 1.0.1
  * Plugin URI: https://github.com/jmbarne3/ministries-cpt-plugin/
  * Author: Jim Barnes
  * Author URI: https://github.com/jmbarne3/
