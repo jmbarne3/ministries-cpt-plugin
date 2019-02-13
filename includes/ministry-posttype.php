@@ -153,10 +153,10 @@ if ( ! class_exists( 'JMB_Ministry_PostType' ) ) {
                         ),
                         array(
                             'key'           => 'field_jmb_ministry_meeting_times',
-                            'label'         => 'Meeting Times',
+                            'label'         => 'Sidebar Content',
                             'name'          => 'ministry_meeting_times',
                             'type'          => 'wysiwyg',
-                            'instructions'  => 'A description of regular meeting times can be placed here.',
+                            'instructions'  => 'Arbitrary content can be placed in the sidebar here.',
                             'required'      => 0,
                             'tabs'          => 'all',
                             'toolbar'       => 'full',
